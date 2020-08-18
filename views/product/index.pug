@@ -1,0 +1,34 @@
+extends ../layout/common.pug
+
+block content
+
+	h1.mt-5 Products	
+
+	.d-flex.align-items-center
+		form.ml-auto(action="users/search", method="GET", class="d-flex 2")
+			input(type="text", name="q", class="form-control")
+			button(class="btn btn-primary ml-2") Search
+
+	.row
+		each product in products
+			.col-sm-3
+				.card
+					img.card-img-top(src=product.image, alt="...")
+					.card-body
+						h5.card-title= product.name
+						p.card-text= product.description
+						a.btn.btn-primary(href='/cart/add/' + product.id) Add to Cart
+
+	.nav.justify-content-center(arial-label='Page navigation example')
+		ul.pagination
+			li.page-item
+				a.page-link(href='/product/?page=' + page) Previous
+			li.page-item
+				a.page-link(href=href='/product/?page=' + 1) 1
+			li.page-item
+				a.page-link(href=href='/product/?page=' + 2) 2
+			li.page-item
+				a.page-link(href=href='/product/?page=' + 3) 3
+			li.page-item
+				a.page-link(href='#') Next
+

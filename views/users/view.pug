@@ -1,0 +1,15 @@
+extends ../layout/common.pug
+
+block content
+
+	h3 View user
+
+	img.rounded-circle(src=user.avatar, width="128", height="128")
+	p
+		b Name: 
+		span= user.name
+	p 
+		b Phone: 
+		span= user.phone
+
+	a.btn.btn-primary(href="/users") Back
